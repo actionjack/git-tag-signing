@@ -1,0 +1,13 @@
+@startuml
+Developer -> GitRepo: Create Feature Branch
+Developer -> Developer: Commit code
+Developer -> GitRepo: Push Code
+Developer -> GitRepo: PR raised
+GitRepo -> CodeReviewer: PR Notification
+CodeReviewer -> GitRepo: PR gpg signed and merged
+GitRepo -> CI: Trigger build of Code
+CI -> GitRepo: On success tag created
+CI ->x CI: On fail no tag created
+
+
+@enduml
